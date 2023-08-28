@@ -2,13 +2,13 @@ import {
   BaseSource,
   Item,
   SourceOptions,
-} from "https://deno.land/x/ddu_vim@v1.11.0/types.ts";
-import { Denops, fn } from "https://deno.land/x/ddu_vim@v1.11.0/deps.ts";
-import { ActionData } from "https://deno.land/x/ddu_kind_file@v0.3.1/file.ts";
-import { join, resolve } from "https://deno.land/std@0.159.0/path/mod.ts";
-import { abortable } from "https://deno.land/std@0.129.0/async/mod.ts";
-import * as frontmatter from "https://deno.land/std@0.160.0/encoding/front_matter.ts";
-import * as yaml from "https://deno.land/std@0.160.0/encoding/yaml.ts";
+} from "https://deno.land/x/ddu_vim@v2.0.0/types.ts";
+import { Denops, fn } from "https://deno.land/x/ddu_vim@v2.0.0/deps.ts";
+import { ActionData } from "https://deno.land/x/ddu_kind_file@v0.3.2/file.ts";
+import { join, resolve } from "https://deno.land/std@0.167.0/path/mod.ts";
+import { abortable } from "https://deno.land/std@0.167.0/async/mod.ts";
+import * as frontmatter from "https://deno.land/std@0.167.0/encoding/front_matter.ts";
+import * as yaml from "https://deno.land/std@0.167.0/encoding/yaml.ts";
 
 type Params = Record<never, never>;
 type Args = {
