@@ -2,13 +2,13 @@ import {
   BaseSource,
   Item,
   SourceOptions,
-} from "https://deno.land/x/ddu_vim@v2.0.0/types.ts";
-import { Denops, fn } from "https://deno.land/x/ddu_vim@v2.0.0/deps.ts";
-import { ActionData } from "https://deno.land/x/ddu_kind_file@v0.3.2/file.ts";
-import { join, resolve } from "https://deno.land/std@0.167.0/path/mod.ts";
-import { abortable } from "https://deno.land/std@0.167.0/async/mod.ts";
-import * as frontmatter from "https://deno.land/std@0.167.0/encoding/front_matter.ts";
-import * as yaml from "https://deno.land/std@0.167.0/encoding/yaml.ts";
+} from "https://deno.land/x/ddu_vim@v3.7.0/types.ts";
+import { Denops, fn } from "https://deno.land/x/ddu_vim@v3.7.0/deps.ts";
+import { ActionData } from "https://deno.land/x/ddu_kind_file@v0.7.1/file.ts";
+import { join, resolve } from "https://deno.land/std@0.208.0/path/mod.ts";
+import { abortable } from "https://deno.land/std@0.208.0/async/mod.ts";
+import * as frontmatter from "https://deno.land/std@0.208.0/front_matter/any.ts";
+import * as yaml from "https://deno.land/std@0.208.0/yaml/mod.ts";
 
 type Params = Record<never, never>;
 type Args = {
@@ -25,7 +25,7 @@ export class Source extends BaseSource<Params> {
     const abortController = new AbortController();
     return new ReadableStream({
       async start(controller) {
-        const root = sourceOptions.path || await fn.getcwd(denops) as string;
+        const root = (sourceOptions.path || await fn.getcwd(denops)) as string;
         const it = walk(
           resolve(root, root),
           abortController.signal,
